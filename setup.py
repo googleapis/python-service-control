@@ -38,7 +38,7 @@ with io.open(readme_filename, encoding="utf-8") as readme_file:
 
 setuptools.setup(
     name=name,
-    version=version,
+    version=setuptools.sic(version),
     long_description=readme,
     author="Google LLC",
     author_email="googleapis-packages@google.com",
