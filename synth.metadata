@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-service-control.git",
-        "sha": "57c62204f9b57592c768af4ba0dd2e7e940cf516"
+        "sha": "8f72925cf82c42f70811c24d5bfc512c48f8cbcc"
       }
     },
     {
