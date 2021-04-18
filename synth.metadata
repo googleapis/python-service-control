@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "8ff7d794576311d3d68d4df2ac6da93bbfcd7476",
-        "internalRef": "366472163"
+        "sha": "0cc3705e4510840405afed44479754dc67fbb5fc",
+        "internalRef": "368055909"
       }
     },
     {
@@ -106,7 +106,6 @@
     "docs/servicecontrol_v1/service_controller.rst",
     "docs/servicecontrol_v1/services.rst",
     "docs/servicecontrol_v1/types.rst",
-    "google-cloud-servicecontrol-v1-py.tar.gz",
     "google/cloud/servicecontrol/__init__.py",
     "google/cloud/servicecontrol/py.typed",
     "google/cloud/servicecontrol_v1/__init__.py",
