@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-service-control.git",
-        "sha": "57c62204f9b57592c768af4ba0dd2e7e940cf516"
+        "sha": "8f72925cf82c42f70811c24d5bfc512c48f8cbcc"
       }
     },
     {
@@ -106,6 +106,7 @@
     "docs/servicecontrol_v1/service_controller.rst",
     "docs/servicecontrol_v1/services.rst",
     "docs/servicecontrol_v1/types.rst",
+    "google-cloud-servicecontrol-v1-py.tar.gz",
     "google/cloud/servicecontrol/__init__.py",
     "google/cloud/servicecontrol/py.typed",
     "google/cloud/servicecontrol_v1/__init__.py",
