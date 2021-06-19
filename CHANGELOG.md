@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.2.1](https://www.github.com/googleapis/python-service-control/compare/v0.2.0...v0.2.1) (2021-06-19)
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-service-control/issues/1127)) ([#31](https://www.github.com/googleapis/python-service-control/issues/31)) ([57502d9](https://www.github.com/googleapis/python-service-control/commit/57502d9d8b0cf68df2ab0f99b8bb4dcaeef7ae1f)), closes [#1126](https://www.github.com/googleapis/python-service-control/issues/1126)
+
 ## [0.2.0](https://www.github.com/googleapis/python-service-control/compare/v0.1.0...v0.2.0) (2021-05-27)
 
 
