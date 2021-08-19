@@ -41,9 +41,13 @@ s.remove_staging_dirs()
 # ----------------------------------------------------------------------------
 
 templated_files = common.py_library(cov_level=99, microgenerator=True)
-python.py_samples(skip_readmes=True)
 
-# the microgenerator has a good coveragerc file
+excludes = [".coveragerc"]
+s.move(
+  templated_files, excludes=excludes
+) # the microgenerator has a good coveragerc file
+
+python.py_samples(skip_readmes=True)
 
 # Remove the replacements below once https://github.com/googleapis/synthtool/pull/1188 is merged
 
@@ -85,10 +89,6 @@ s.replace(
     "CONTRIBUTING.rst",
     "blob/master/noxfile.py",
     "blob/main/noxfile.py",
-)
-excludes = [".coveragerc"]
-s.move(
-  templated_files, excludes=excludes
 )
 
 s.shell.run(["nox", "-s", "blacken"], hide_output=False)
