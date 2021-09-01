@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/googleapis/python-service-control/compare/v1.0.2...v1.0.3) (2021-09-01)
+
+
+### Documentation
+
+* migrate links in CONTRIBUTING.rst from master to main ([#58](https://www.github.com/googleapis/python-service-control/issues/58)) ([98c4177](https://www.github.com/googleapis/python-service-control/commit/98c4177b4cdeb4cc6ad2ac947bff0bb22df578a6))
+
 ### [1.0.2](https://www.github.com/googleapis/python-service-control/compare/v1.0.1...v1.0.2) (2021-07-28)
 
 
