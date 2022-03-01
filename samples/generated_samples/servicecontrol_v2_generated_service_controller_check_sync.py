@@ -20,11 +20,11 @@
 # It may require modifications to work in your environment.
 
 # To install the latest published package dependency, execute the following:
-#   python3 -m pip install google-api-servicecontrol
+#   python3 -m pip install google-cloud-service-control
 
 
 # [START servicecontrol_v2_generated_ServiceController_Check_sync]
-from google.api import servicecontrol_v2
+from google.cloud import servicecontrol_v2
 
 
 def sample_check():
