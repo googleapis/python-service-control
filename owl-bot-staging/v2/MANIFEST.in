@@ -1,0 +1,2 @@
+recursive-include google/api/servicecontrol *.py
+recursive-include google/api/servicecontrol_v2 *.py
