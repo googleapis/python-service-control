@@ -23,14 +23,6 @@ import pytest
 from proto.marshal.rules.dates import DurationRule, TimestampRule
 
 
-from google.api.servicecontrol_v2.services.service_controller import (
-    ServiceControllerAsyncClient,
-)
-from google.api.servicecontrol_v2.services.service_controller import (
-    ServiceControllerClient,
-)
-from google.api.servicecontrol_v2.services.service_controller import transports
-from google.api.servicecontrol_v2.types import service_controller
 from google.api_core import client_options
 from google.api_core import exceptions as core_exceptions
 from google.api_core import gapic_v1
@@ -39,6 +31,14 @@ from google.api_core import grpc_helpers_async
 from google.api_core import path_template
 from google.auth import credentials as ga_credentials
 from google.auth.exceptions import MutualTLSChannelError
+from google.cloud.servicecontrol_v2.services.service_controller import (
+    ServiceControllerAsyncClient,
+)
+from google.cloud.servicecontrol_v2.services.service_controller import (
+    ServiceControllerClient,
+)
+from google.cloud.servicecontrol_v2.services.service_controller import transports
+from google.cloud.servicecontrol_v2.types import service_controller
 from google.oauth2 import service_account
 from google.protobuf import any_pb2  # type: ignore
 from google.protobuf import duration_pb2  # type: ignore
@@ -567,7 +567,7 @@ def test_service_controller_client_client_options_credentials_file(
 
 def test_service_controller_client_client_options_from_dict():
     with mock.patch(
-        "google.api.servicecontrol_v2.services.service_controller.transports.ServiceControllerGrpcTransport.__init__"
+        "google.cloud.servicecontrol_v2.services.service_controller.transports.ServiceControllerGrpcTransport.__init__"
     ) as grpc_transport:
         grpc_transport.return_value = None
         client = ServiceControllerClient(
@@ -906,7 +906,7 @@ def test_service_controller_base_transport_error():
 def test_service_controller_base_transport():
     # Instantiate the base transport.
     with mock.patch(
-        "google.api.servicecontrol_v2.services.service_controller.transports.ServiceControllerTransport.__init__"
+        "google.cloud.servicecontrol_v2.services.service_controller.transports.ServiceControllerTransport.__init__"
     ) as Transport:
         Transport.return_value = None
         transport = transports.ServiceControllerTransport(
@@ -932,7 +932,7 @@ def test_service_controller_base_transport_with_credentials_file():
     with mock.patch.object(
         google.auth, "load_credentials_from_file", autospec=True
     ) as load_creds, mock.patch(
-        "google.api.servicecontrol_v2.services.service_controller.transports.ServiceControllerTransport._prep_wrapped_messages"
+        "google.cloud.servicecontrol_v2.services.service_controller.transports.ServiceControllerTransport._prep_wrapped_messages"
     ) as Transport:
         Transport.return_value = None
         load_creds.return_value = (ga_credentials.AnonymousCredentials(), None)
@@ -953,7 +953,7 @@ def test_service_controller_base_transport_with_credentials_file():
 def test_service_controller_base_transport_with_adc():
     # Test the default credentials are used if credentials and credentials_file are None.
     with mock.patch.object(google.auth, "default", autospec=True) as adc, mock.patch(
-        "google.api.servicecontrol_v2.services.service_controller.transports.ServiceControllerTransport._prep_wrapped_messages"
+        "google.cloud.servicecontrol_v2.services.service_controller.transports.ServiceControllerTransport._prep_wrapped_messages"
     ) as Transport:
         Transport.return_value = None
         adc.return_value = (ga_credentials.AnonymousCredentials(), None)

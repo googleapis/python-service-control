@@ -1,5 +1,5 @@
-Services for Google Api Servicecontrol v2 API
-=============================================
+Services for Google Cloud Servicecontrol v2 API
+===============================================
 .. toctree::
     :maxdepth: 2
 
