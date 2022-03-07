@@ -113,8 +113,8 @@ class CheckResponse(proto.Message):
         status (google.rpc.status_pb2.Status):
             Operation is allowed when this field is not set. Any
             non-'OK' status indicates a denial;
-            `google.rpc.Status.details <>`__ would contain additional
-            details about the denial.
+            [google.rpc.Status.details][google.rpc.Status.details] would
+            contain additional details about the denial.
         headers (Sequence[google.cloud.servicecontrol_v2.types.CheckResponse.HeadersEntry]):
             Returns a set of request contexts generated from the
             ``CheckRequest``.
