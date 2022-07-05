@@ -1084,7 +1084,6 @@ def test_quota_controller_transport_auth_adc(transport_class):
     [
         transports.QuotaControllerGrpcTransport,
         transports.QuotaControllerGrpcAsyncIOTransport,
-        transports.QuotaControllerRestTransport,
     ],
 )
 def test_quota_controller_transport_auth_gdch_credentials(transport_class):
