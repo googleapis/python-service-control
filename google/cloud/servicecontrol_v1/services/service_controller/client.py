@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -57,7 +68,7 @@ class ServiceControllerClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[ServiceControllerTransport]:
         """Returns an appropriate transport class.
 
@@ -314,7 +325,7 @@ class ServiceControllerClient(metaclass=ServiceControllerClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, ServiceControllerTransport, None] = None,
+        transport: Optional[Union[str, ServiceControllerTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -412,10 +423,10 @@ class ServiceControllerClient(metaclass=ServiceControllerClientMeta):
 
     def check(
         self,
-        request: Union[service_controller.CheckRequest, dict] = None,
+        request: Optional[Union[service_controller.CheckRequest, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service_controller.CheckResponse:
         r"""Checks whether an operation on a service should be allowed to
@@ -512,10 +523,10 @@ class ServiceControllerClient(metaclass=ServiceControllerClientMeta):
 
     def report(
         self,
-        request: Union[service_controller.ReportRequest, dict] = None,
+        request: Optional[Union[service_controller.ReportRequest, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> service_controller.ReportResponse:
         r"""Reports operation results to Google Service Control, such as
