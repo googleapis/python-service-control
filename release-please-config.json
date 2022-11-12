@@ -7,12 +7,12 @@
         "google/cloud/servicecontrol/gapic_version.py",
         {
           "type": "json",
-          "path": "samples/generated_samples/snippet_metadata_servicecontrol_v1.json",
+          "path": "samples/generated_samples/snippet_metadata_google.api.servicecontrol.v1.json",
           "jsonpath": "$.clientLibrary.version"
         },
         {
           "type": "json",
-          "path": "samples/generated_samples/snippet_metadata_servicecontrol_v2.json",
+          "path": "samples/generated_samples/snippet_metadata_google.api.servicecontrol.v2.json",
           "jsonpath": "$.clientLibrary.version"
         }
       ]
