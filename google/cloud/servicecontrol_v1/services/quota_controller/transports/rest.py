@@ -14,24 +14,21 @@
 # limitations under the License.
 #
 
-from google.auth.transport.requests import AuthorizedSession  # type: ignore
-import json  # type: ignore
-import grpc  # type: ignore
-from google.auth.transport.grpc import SslCredentials  # type: ignore
-from google.auth import credentials as ga_credentials  # type: ignore
-from google.api_core import exceptions as core_exceptions
-from google.api_core import retry as retries
-from google.api_core import rest_helpers
-from google.api_core import rest_streaming
-from google.api_core import path_template
-from google.api_core import gapic_v1
-
-from google.protobuf import json_format
-from requests import __version__ as requests_version
 import dataclasses
+import json  # type: ignore
 import re
 from typing import Callable, Dict, List, Optional, Sequence, Tuple, Union
 import warnings
+
+from google.api_core import gapic_v1, path_template, rest_helpers, rest_streaming
+from google.api_core import exceptions as core_exceptions
+from google.api_core import retry as retries
+from google.auth import credentials as ga_credentials  # type: ignore
+from google.auth.transport.grpc import SslCredentials  # type: ignore
+from google.auth.transport.requests import AuthorizedSession  # type: ignore
+from google.protobuf import json_format
+import grpc  # type: ignore
+from requests import __version__ as requests_version
 
 try:
     OptionalRetry = Union[retries.Retry, gapic_v1.method._MethodDefault]
@@ -41,8 +38,8 @@ except AttributeError:  # pragma: NO COVER
 
 from google.cloud.servicecontrol_v1.types import quota_controller
 
-from .base import QuotaControllerTransport, DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
-
+from .base import DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from .base import QuotaControllerTransport
 
 DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
     gapic_version=BASE_DEFAULT_CLIENT_INFO.gapic_version,
@@ -79,7 +76,12 @@ class QuotaControllerRestInterceptor:
 
 
     """
-    def pre_allocate_quota(self, request: quota_controller.AllocateQuotaRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[quota_controller.AllocateQuotaRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_allocate_quota(
+        self,
+        request: quota_controller.AllocateQuotaRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[quota_controller.AllocateQuotaRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for allocate_quota
 
         Override in a subclass to manipulate the request or metadata
@@ -87,7 +89,9 @@ class QuotaControllerRestInterceptor:
         """
         return request, metadata
 
-    def post_allocate_quota(self, response: quota_controller.AllocateQuotaResponse) -> quota_controller.AllocateQuotaResponse:
+    def post_allocate_quota(
+        self, response: quota_controller.AllocateQuotaResponse
+    ) -> quota_controller.AllocateQuotaResponse:
         """Post-rpc interceptor for allocate_quota
 
         Override in a subclass to manipulate the response
@@ -120,20 +124,21 @@ class QuotaControllerRestTransport(QuotaControllerTransport):
 
     """
 
-    def __init__(self, *,
-            host: str = 'servicecontrol.googleapis.com',
-            credentials: Optional[ga_credentials.Credentials] = None,
-            credentials_file: Optional[str] = None,
-            scopes: Optional[Sequence[str]] = None,
-            client_cert_source_for_mtls: Optional[Callable[[
-                ], Tuple[bytes, bytes]]] = None,
-            quota_project_id: Optional[str] = None,
-            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-            always_use_jwt_access: Optional[bool] = False,
-            url_scheme: str = 'https',
-            interceptor: Optional[QuotaControllerRestInterceptor] = None,
-            api_audience: Optional[str] = None,
-            ) -> None:
+    def __init__(
+        self,
+        *,
+        host: str = "servicecontrol.googleapis.com",
+        credentials: Optional[ga_credentials.Credentials] = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        client_cert_source_for_mtls: Optional[Callable[[], Tuple[bytes, bytes]]] = None,
+        quota_project_id: Optional[str] = None,
+        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+        always_use_jwt_access: Optional[bool] = False,
+        url_scheme: str = "https",
+        interceptor: Optional[QuotaControllerRestInterceptor] = None,
+        api_audience: Optional[str] = None,
+    ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -172,7 +177,9 @@ class QuotaControllerRestTransport(QuotaControllerTransport):
         # credentials object
         maybe_url_match = re.match("^(?P<scheme>http(?:s)?://)?(?P<host>.*)$", host)
         if maybe_url_match is None:
-            raise ValueError(f"Unexpected hostname structure: {host}")  # pragma: NO COVER
+            raise ValueError(
+                f"Unexpected hostname structure: {host}"
+            )  # pragma: NO COVER
 
         url_match_items = maybe_url_match.groupdict()
 
@@ -183,10 +190,11 @@ class QuotaControllerRestTransport(QuotaControllerTransport):
             credentials=credentials,
             client_info=client_info,
             always_use_jwt_access=always_use_jwt_access,
-            api_audience=api_audience
+            api_audience=api_audience,
         )
         self._session = AuthorizedSession(
-            self._credentials, default_host=self.DEFAULT_HOST)
+            self._credentials, default_host=self.DEFAULT_HOST
+        )
         if client_cert_source_for_mtls:
             self._session.configure_mtls_channel(client_cert_source_for_mtls)
         self._interceptor = interceptor or QuotaControllerRestInterceptor()
@@ -196,12 +204,14 @@ class QuotaControllerRestTransport(QuotaControllerTransport):
         def __hash__(self):
             return hash("AllocateQuota")
 
-        def __call__(self,
-                request: quota_controller.AllocateQuotaRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> quota_controller.AllocateQuotaResponse:
+        def __call__(
+            self,
+            request: quota_controller.AllocateQuotaRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> quota_controller.AllocateQuotaResponse:
             r"""Call the allocate quota method over HTTP.
 
             Args:
@@ -222,11 +232,12 @@ class QuotaControllerRestTransport(QuotaControllerTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/services/{service_name}:allocateQuota',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1/services/{service_name}:allocateQuota",
+                    "body": "*",
+                },
             ]
             request, metadata = self._interceptor.pre_allocate_quota(request, metadata)
             pb_request = quota_controller.AllocateQuotaRequest.pb(request)
@@ -235,32 +246,34 @@ class QuotaControllerRestTransport(QuotaControllerTransport):
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -276,12 +289,14 @@ class QuotaControllerRestTransport(QuotaControllerTransport):
             return resp
 
     @property
-    def allocate_quota(self) -> Callable[
-            [quota_controller.AllocateQuotaRequest],
-            quota_controller.AllocateQuotaResponse]:
+    def allocate_quota(
+        self,
+    ) -> Callable[
+        [quota_controller.AllocateQuotaRequest], quota_controller.AllocateQuotaResponse
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._AllocateQuota(self._session, self._host, self._interceptor) # type: ignore
+        return self._AllocateQuota(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
     def kind(self) -> str:
@@ -291,6 +306,4 @@ class QuotaControllerRestTransport(QuotaControllerTransport):
         self._session.close()
 
 
-__all__=(
-    'QuotaControllerRestTransport',
-)
+__all__ = ("QuotaControllerRestTransport",)
